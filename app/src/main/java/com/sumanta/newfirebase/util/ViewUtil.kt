@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.sumanta.newfirebase.ui.auth.LoginActivity
 import com.sumanta.newfirebase.ui.home.HomeActivity
 
 fun Context.toast(message: String) =
@@ -22,6 +23,13 @@ fun ProgressBar.hide(){
 fun Context.login(){
 
     val intent = Intent(this, HomeActivity::class.java).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or  Intent.FLAG_ACTIVITY_CLEAR_TASK
+    }
+    startActivity(intent)
+}
+fun Context.logout(){
+
+    val intent = Intent(this, LoginActivity::class.java).apply {
         flags = Intent.FLAG_ACTIVITY_NEW_TASK or  Intent.FLAG_ACTIVITY_CLEAR_TASK
     }
     startActivity(intent)
